@@ -23,10 +23,7 @@ Display the Pomodoro Clock with a cycle, and a menu of options for working with 
         Activate Pomodoro Cycle [UC2]
         Pause Pomodoro Cycle [UC3]
         Change Pomodoro Cycle [UC4]
-        Create preset [UC5]
-        Delete preset [UC6]
-        Skip Pomodoro Cycle [UC7]
-        Add Ingredient [UC8]
+        Skip Pomodoro Cycle [UC5]
 
 ### Use Case 2: Activate Pomodoro Cycle
 #### Preconditions
@@ -42,16 +39,11 @@ User selected the Activate option from the menu [UC1]
 
 ### Use Case 3: Pause Pomodoro Cycle
 #### Preconditions
-User selected the Edit Cycle option from the menu [UC1]
+User selected the Pause option from the menu during an active Pomodoro cycle [UC2]
 
 #### Main Flow
 
-    1. The user clicks deactivated .
-    2. The user clicks 'Done', and returns to the main menu.
-
-#### Alternative Flows
-
-    [Invalid Time] The entry for the time is not numerical digits in the appropriate 00:00 format, the value is less than 0:00 or greater than 60:00
+    1. The user clicks Pause, and the Pomodoro cycle is paused.
 
 ### Use Case 4: Change Pomodoro Cycle
 #### Preconditions
@@ -59,9 +51,17 @@ User selected the Edit Cycle option from the menu [UC1]
 
 #### Main Flow
 
-    1. The user enters their prefered time for both work and break sections of the Pomodoro cycle [Invalid Time][Insufficient Time], or pick an already made preset.
-    2. The user clicks 'Done', and returns to the main menu.
+    1. The user enters their prefered time for both work and break sections of the Pomodoro cycle [Invalid Time][Insufficient Time].
+    2. The user clicks 'Done'.
 
 #### Alternative Flows
 
     [Invalid Time] The entry for the time is not numerical digits in the appropriate 00:00 format, the value is less than 0:00 or greater than 60:00
+
+### Use Case 5: Skip Pomodoro Cycle
+#### Preconditions
+User selected the Skip Cycle option from the menu [UC3]
+
+#### Main Flow
+
+    1. The user clicks Skip Cycle, and the Pomodoro cycle is skipped.
