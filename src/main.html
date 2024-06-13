@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PomodoroApp</title>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body onload='decrementClock()'>
+    <div class='clockParent'>
+      <div class='row'>
+        <span class='clockNameChild' id='workTitle'>
+          Work:
+        </span>
+        <span class='clockTimeChild' id='workTime'>
+          00:10
+        </span>
+      </div>
+  
+      <div class='row'>
+        <span class='clockNameChild' id='breakTitle'>
+          Break:
+        </span>
+        <span class='clockTimeChild' id='breakTime'>
+          00:10
+        </span>
+      </div>
+  
+      <div class='row'>
+        <span class='clockNameChild' id='longTitle'>
+          Long Break:
+        </span>
+        <span class='clockTimeChild' id='longTime'>
+          00:10
+        </span>
+      </div>
+  
+      <div class='row'>
+        <button class='clockNameChild' id='activator' onclick='activateClock()'>
+          Activate
+        </button>
+        <button class='clockTimeChild' id='skipper' onclick='skipCycle()'>
+          Skip
+        </button>
+      </div>
+    </div>
+    <script src='clock.js'></script>
+  </body>
+</html>
