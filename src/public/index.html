@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    <div class='clockParent'>
+      <div class='row'>
+        <span class='clockNameChild' id='workTitle'>
+          Work:
+        </span>
+        <span class='clockTimeChild' id='workTime'>
+          00:10
+        </span>
+      </div>
+  
+      <div class='row'>
+        <span class='clockNameChild' id='breakTitle'>
+          Break:
+        </span>
+        <span class='clockTimeChild' id='breakTime'>
+          00:10
+        </span>
+      </div>
+  
+      <div class='row'>
+        <span class='clockNameChild' id='longTitle'>
+          Long Break:
+        </span>
+        <span class='clockTimeChild' id='longTime'>
+          00:10
+        </span>
+      </div>
+  
+      <div class='buttonRow'>
+        <button class='buttonChild' id='activator'>
+          Activate
+        </button>
+        <button class='buttonChild' id='skipper'>
+          Skip
+        </button>
+      </div>
+
+      <div class='row'>
+        <span class='clockNameChild' id='workTitle'>
+          Work:
+        </span>
+        <div class='clockTimeChild'>
+          <input class='inputLeft' id='workMinModify' type='number' min='0' max='59'>:<input class='inputRight' id='workSecModify' type='number' min='0' max='59'>
+        </div>
+      </div>
+
+      <div class='row'>
+        <span class='clockNameChild' id='breakTitle'>
+          Break:
+        </span>
+        <div class='clockTimeChild'>
+          <input class='inputLeft' id='breakMinModify' type='number' min='0' max='59'>:<input class='inputRight' id='breakSecModify' type='number' min='0' max='59'>
+        </div>
+      </div>
+
+      <div class='row'>
+        <span class='clockNameChild' id='longTitle'>
+          Long Break:
+        </span>
+        <div class='clockTimeChild'>
+          <input class='inputLeft' id='longMinModify' type='number' min='0' max='59'>:<input class='inputRight' id='longSecModify' type='number' min='0' max='59'>
+        </div>
+      </div>
+
+      <div class='buttonRow'>
+        <button class='buttonChild' id='update'>
+          Update time
+        </button>
+      </div>
+    </div>
+    <script src='clock.js'></script>
+  </body>
+</html>

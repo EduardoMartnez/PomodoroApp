@@ -1,0 +1,64 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightblue;
+    height: 100vh;
+    margin: 0;
+}
+
+.clockParent {
+    display: flex;
+    flex-direction: column;
+    background-color: grey;
+    padding: 20px;
+    border-radius: 10px;
+    width: 11%; /* Adjust to control the overall width of the clock container */
+    max-width: 600px; /* Optionally set a maximum width */
+}
+
+.clockNameChild, .clockTimeChild, .inputLeft, .inputRight {
+    font-family: verdana;
+    font-size: 20px;
+}
+
+.row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.clockNameChild {
+    flex: 1; /* Takes up 50% of the row by default */
+    text-align: right;
+    margin-right: 5%; /* Add space between name and time */
+}
+
+.clockTimeChild {
+    flex: 1; /* Takes up 50% of the row by default */
+    text-align: left;
+}
+
+.buttonRow {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.buttonChild {
+    flex: 1;
+    text-align: center;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: lightgray; /* Optional styling */
+    border: none; /* Optional styling */
+    border-radius: 5px; /* Optional styling */
+    margin: 0 5px; /* Optional spacing between buttons */
+}
+
+.inputLeft, .inputRight {
+    width: 35%;
+}
