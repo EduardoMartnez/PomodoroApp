@@ -21,9 +21,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
         currentWorkTime = workTime;
         currentBreakTime = breakTime;
         currentLongTime = longTime;
-        updateDisplay('workTime', currentWorkTime);
-        updateDisplay('breakTime', currentBreakTime);
-        updateDisplay('longTime', currentLongTime);
+        updateDisplay('work_time', currentWorkTime);
+        updateDisplay('break_time', currentBreakTime);
+        updateDisplay('long_time', currentLongTime);
     }
 
     async function updateSettings() {
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
                     console.log(currentWorkTime);
 
-                    updateDisplay('workTime', currentWorkTime);
+                    updateDisplay('work_time', currentWorkTime);
                     break;
                 case 1: 
                     currentBreakTime--;
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                         currentCycle = 0;
                     }
 
-                    updateDisplay('breakTime', currentBreakTime);
+                    updateDisplay('break_time', currentBreakTime);
                     break;
                 case 2:
                     currentLongTime--;
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                         workCount = 0;
                     }
 
-                    updateDisplay('longTime', currentLongTime);
+                    updateDisplay('long_time', currentLongTime);
                     break;
             }
             updateSettings();
@@ -101,19 +101,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     console.log("Skipped Cycle 1");
                     currentWorkTime = workTime;
                     currentCycle = 1;
-                    updateDisplay('workTime', currentWorkTime);
+                    updateDisplay('work_time', currentWorkTime);
                     break;
                 case 1:
                     console.log("Skipped Cycle 2");
                     currentBreakTime = breakTime;
                     currentCycle = (workCount === 3) ? 2 : 0;
-                    updateDisplay('breakTime', currentBreakTime);
+                    updateDisplay('break_time', currentBreakTime);
                     break;
                 case 2:
                     console.log("Skipped Cycle 3");
                     currentLongTime = longTime;
                     currentCycle = 0;
-                    updateDisplay('longTime', currentLongTime);
+                    updateDisplay('long_time', currentLongTime);
                     break;
             }
             activateClock(); // Automatically activate clock after skipping
@@ -134,8 +134,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     function changeTime() {
         if (!active) {
-            let newWorkMin = parseInt(document.getElementById('workMinModify').value);
-            let newWorkSec = parseInt(document.getElementById('workSecModify').value);
+            let newWorkMin = parseInt(document.getElementById('work_min').value);
+            let newWorkSec = parseInt(document.getElementById('work_sec').value);
 
             if (newWorkMin != null && newWorkSec != null) {
                 console.log(workTime);
@@ -145,8 +145,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
             currentWorkTime = workTime;
 
-            let newBreakMin = parseInt(document.getElementById('breakMinModify').value);
-            let newBreakSec = parseInt(document.getElementById('breakSecModify').value);
+            let newBreakMin = parseInt(document.getElementById('break_min').value);
+            let newBreakSec = parseInt(document.getElementById('break_sec').value);
 
             if (newBreakMin != null && newBreakSec != null) {
                 breakTime = (newBreakMin * 60) + newBreakSec;
@@ -154,8 +154,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
             currentBreakTime = breakTime;
 
-            let newLongMin = parseInt(document.getElementById('longMinModify').value);
-            let newLongSec = parseInt(document.getElementById('longSecModify').value);
+            let newLongMin = parseInt(document.getElementById('long_min').value);
+            let newLongSec = parseInt(document.getElementById('long_sec').value);
 
             if (newLongMin != null && newLongSec != null) {
                 longTime = (newLongMin * 60) + newLongSec;
@@ -165,9 +165,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
             workCount = 0;
             currentCycle = 0;
-            updateDisplay('workTime', currentWorkTime);
-            updateDisplay('breakTime', currentBreakTime);
-            updateDisplay('longTime', currentLongTime);
+            updateDisplay('work_time', currentWorkTime);
+            updateDisplay('break_time', currentBreakTime);
+            updateDisplay('long_time', currentLongTime);
             updateSettings();
         }
     }

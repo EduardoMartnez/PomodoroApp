@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro!</title>
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    <div class="holder">
+      <div class="row">
+        <span class="name" id="work_title">
+          Work:
+        </span>
+        <span class="time" id="work_time">
+          00:10
+        </span>
+      </div>
+  
+      <div class="row">
+        <span class="name" id="break_title">
+          Break:
+        </span>
+        <span class="time" id="break_time">
+          00:10
+        </span>
+      </div>
+  
+      <div class="row">
+        <span class="name" id="long_title">
+          Long Break:
+        </span>
+        <span class="time" id="long_time">
+          00:10
+        </span>
+      </div>
+  
+      <div class="button_row">
+        <button class="button" id="activator" type="submit">
+          Activate
+        </button>
+        <button class="button" id="skipper" type="submit">
+          Skip
+        </button>
+      </div>
+
+      <div class="row">
+        <span class="name" id="work_title">
+          Work:
+        </span>
+        <div class="time">
+          <input class="input_left" id="work_min" type="number" min="0" max="59">:<input class="input_right" id="work_sec" type="number" min="0" max="59">
+        </div>
+      </div>
+
+      <div class="row">
+        <span class="name" id="break_title">
+          Break:
+        </span>
+        <div class="time">
+          <input class="input_left" id="break_min" type="number" min="0" max="59">:<input class="input_right" id="break_sec" type="number" min="0" max="59">
+        </div>
+      </div>
+
+      <div class="row">
+        <span class="name" id="long_title">
+          Long Break:
+        </span>
+        <div class="time">
+          <input class="input_left" id="long_min" type="number" min="0" max="59">:<input class="input_right" id="long_sec" type="number" min="0" max="59">
+        </div>
+      </div>
+
+      <div class="button_row">
+        <button class="button" id="update" type="submit">
+          Update time
+        </button>
+      </div>
+    </div>
+    <script src="clock.js"></script>
+  </body>
+</html>

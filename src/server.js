@@ -1,33 +1,33 @@
-const express = require('express');
-const cors = require('cors');
-const mysql = require('mysql2');
+const express = require("express");
+const cors = require("cors");
+const mysql = require("mysql2");
 
 const app = express();
 const port = 3000;
 
 const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'mima1374',
-    database: 'pomodoro_app'
+    host: "localhost",
+    user: "root",
+    password: "mima1374",
+    database: "pomodoro_app"
 });
 
 connection.connect(err => {
     if (err) {
-        console.error('Error connecting to MySQL:', err.stack);
+        console.error("Error connecting to MySQL:", err.stack);
         return;
     }
-    console.log('Connected to MySQL as ID', connection.threadId);
+    console.log("Connected to MySQL as ID", connection.threadId);
 });
 
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.static("public"));
 
 // Routes
-app.get('/settings', (req, res) => {
-    connection.query('SELECT * FROM settings LIMIT 1', (error, results) => {
+app.get("/settings", (req, res) => {
+    connection.query("SELECT * FROM settings LIMIT 1", (error, results) => {
         if (error) throw error;
         if (results.length > 0) {
             timerSettings = results[0];
@@ -36,7 +36,7 @@ app.get('/settings', (req, res) => {
     });
 });
 
-app.put('/settings', (req, res) => {
+app.put("/settings", (req, res) => {
     timerSettings = { ...timerSettings, ...req.body };
     const query = `
         UPDATE settings SET workTime = ?, breakTime = ?, longTime = ?, currentCycle = ?, active = ?, workCount = ? 

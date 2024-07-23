@@ -7,7 +7,7 @@ body {
     margin: 0;
 }
 
-.clockParent {
+.holder {
     display: flex;
     flex-direction: column;
     background-color: grey;
@@ -17,7 +17,7 @@ body {
     max-width: 600px; /* Optionally set a maximum width */
 }
 
-.clockNameChild, .clockTimeChild, .inputLeft, .inputRight {
+.name, .time, .input_left, .input_right {
     font-family: verdana;
     font-size: 20px;
 }
@@ -29,25 +29,25 @@ body {
     margin-bottom: 10px;
 }
 
-.clockNameChild {
+.name {
     flex: 1; /* Takes up 50% of the row by default */
     text-align: right;
     margin-right: 5%; /* Add space between name and time */
 }
 
-.clockTimeChild {
+.time {
     flex: 1; /* Takes up 50% of the row by default */
     text-align: left;
 }
 
-.buttonRow {
+.button_row {
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-.buttonChild {
+.button {
     flex: 1;
     text-align: center;
     padding: 5px 10px;
@@ -59,6 +59,6 @@ body {
     margin: 0 5px; /* Optional spacing between buttons */
 }
 
-.inputLeft, .inputRight {
+.input_left, .input_right {
     width: 35%;
 }
