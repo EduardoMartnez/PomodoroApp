@@ -5,10 +5,11 @@ DROP TABLE IF EXISTS `User`;
 
 CREATE TABLE `User` (
     `user_id` INTEGER NOT NULL AUTO_INCREMENT,
-    `username` VARCHAR(12) NOT NULL,
+    `username` VARCHAR(12) NOT NULL UNIQUE,
     `password` VARBINARY(128) NOT NULL,
+    `salt`varchar(100) NOT NULL,
     PRIMARY KEY(`user_id`)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 DROP TABLE IF EXISTS `Settings`;
 
@@ -20,7 +21,7 @@ CREATE TABLE `Settings` (
     `current_cycle` INTEGER NOT NULL,
     `active` BOOLEAN NOT NULL,
     `work_count` INTEGER NOT NULL
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 ALTER TABLE `Settings` ADD FOREIGN KEY (user_id) REFERENCES `user_id` ON DELETE CASCADE ON UPDATE CASCADE;
 

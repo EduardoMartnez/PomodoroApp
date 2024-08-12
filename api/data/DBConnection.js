@@ -22,9 +22,8 @@ exports.query = (query, params = []) => {
     }
     connection.query(query, params, (err, results, fields) => {
       if(err) {
-        console.log(err);
-        reject(err);
-        return;
+        // console.log(err);
+        return reject(err);
       }
       resolve({
         results: results,

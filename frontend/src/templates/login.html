@@ -4,19 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     <title>Login</title>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
     <div id="holder">
-        <div id="input">
+        <div id="row">
             <input id="username" placeholder="Username" required maxlength="50">
             <input id="password" placeholder="Password" required maxlength="50" type="password">
         </div>
-        <div id="button">
-            <input id="submit_login" type="submit">
+        <div id="row">
+            <input id="submit_login" type="submit" value="Login">
+            <input id="submit_register" type="submit" value="Register">
         </div>
     </div>
-    <script src='clock.js'></script>
+    <script src='js/login.js'></script>
   </body>
 </html>

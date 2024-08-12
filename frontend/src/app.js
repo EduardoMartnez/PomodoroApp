@@ -10,5 +10,5 @@ app.use(express.static(__dirname + '/static'));
 // As our server to listen for incoming connections
 app.listen(PORT, () => console.log(`Server listening on port: ${PORT}`));
 
-const frontendRoutes = require('./fileRoutes');
-app.use(frontendRoutes);
+const frontend_routes = require('./file_routes');
+app.use(frontend_routes);

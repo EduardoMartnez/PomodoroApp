@@ -7,11 +7,9 @@ module.exports = class {
 
   constructor(data) {
     this.id = data.user_id;
-    this.firstname = data.first_name;
-    this.lastname = data.last_name;
     this.username = data.username;
     this.#password = data.password;
-    this.#salt = data.usr_salt;
+    this.#salt = data.salt;
   }
 
   validatePassword(password) {
@@ -28,12 +26,10 @@ module.exports = class {
 
         if (this.#password == digest) {
           resolve(this);
-        }
-        else {
+        } else {
           reject("Invalid username or password");
         }
       });
     });
   }
-
 };
