@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         // console.log(user_id);
         let settings;
         const res = await fetch(`/api/users/${user_id}/settings`)
-        console.log(res);
+        // console.log(res);
         settings = await res.json();
         
         console.log(settings);
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         current_break_time = break_time;
         current_long_time = long_time;
         updateDisplay('work_time', current_work_time);
-        console.log("Current Work Time: " + current_work_time);
+        // console.log("Current Work Time: " + current_work_time);
         updateDisplay('break_time', current_break_time);
         updateDisplay('long_time', current_long_time);
     }
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
      * updateSettings takes settings that the user has modified and sends them to the database to be stored
      */
     async function updateSettings() {
-        await fetch(`/api/users/${user_id}/newSettings`, {
+        await fetch(`/api/users/${user_id}/new_settings`, {
             method: 'PUT',
             body: JSON.stringify({
                 "work_time": work_time,
@@ -89,6 +89,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 'Content-Type': 'application/json'
             }
         });
+        console.log("Work Time: " + work_time);
     }
 
     /**
