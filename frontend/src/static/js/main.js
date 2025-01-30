@@ -19,49 +19,49 @@ document.addEventListener('DOMContentLoaded', (event) => {
      * fetchUser uses an API call to get the user's database ID from the token that is stored locally in the user's computer.
      * Currently does not work as intended due to fetch() commands not being able to permanently modify global variables
      */
-    function fetchUser() {
-        fetch("/api/users/current").then(res => {
-            // console.log(res.JSON);
-            // console.log(res.user);
-            if (!res.ok) {
-                // If either the token has expired or does not exist, send to login page for authorization
-                if (res.status == 401 || res.status == 404) {
-                    localStorage.removeItem('user');
-                    document.location = '/login';
-                    throw new Error("Unauthenticated");
-                } else {
-                    throw new Error(res.json().error)
-                }
+    async function fetchUser() {
+        let user_info;
+        const res = await fetch("/api/users/current")
+        // console.log(res.JSON);
+        // console.log(res.user);
+        user_info = await res.json();
+        if (!res.ok) {
+            // If either the token has expired or does not exist, send to login page for authorization
+            if (res.status == 401 || res.status == 404) {
+                localStorage.removeItem('user');
+                document.location = '/login';
+                throw new Error("Unauthenticated");
             } else {
-                res.json().then(user => {
-                    // console.log(user);
-                    // console.log(user.id);
-                    console.log(user.id);
-                    user_id =  user.id;
-                });
+                throw new Error(user_info.error)
             }
-        });
+        } else {
+            // console.log(user);
+            // console.log(user.id);
+            console.log(user_info.id);
+            user_id =  user_info.id;
+        }
     }
 
     /**
      * fetchSettings uses an API call to get user settings using an ID value acquired from fetchUser.
      * Currently does not work as intended due to fetch() commands not being able to permanently modify global variables
      */
-    function fetchSettings() {
+    async function fetchSettings() {
+        await fetchUser();
         // console.log(user_id);
-        fetch(`/api/users/${user_id}/settings`).then(res => {
-            console.log(res);
-            res.json().then(settings => {
-                console.log(settings);
-                console.log(settings.work_time);
-                work_time = settings.work_time;
-                break_time = settings.break_time;
-                long_time = settings.long_time;
-                current_cycle = settings.current_cycle;
-                active = settings.active;
-                work_count = settings.work_count;
-            });
-        });
+        let settings;
+        const res = await fetch(`/api/users/${user_id}/settings`)
+        console.log(res);
+        settings = await res.json();
+        
+        console.log(settings);
+        console.log(settings.work_time);
+        work_time = settings.work_time;
+        break_time = settings.break_time;
+        long_time = settings.long_time;
+        current_cycle = settings.current_cycle;
+        active = settings.active;
+        work_count = settings.work_count;
         current_work_time = work_time;
         current_break_time = break_time;
         current_long_time = long_time;
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
      * updateSettings takes settings that the user has modified and sends them to the database to be stored
      */
     async function updateSettings() {
-        fetch(`/api/users/${user_id}/newSettings`, {
+        await fetch(`/api/users/${user_id}/newSettings`, {
             method: 'PUT',
             body: JSON.stringify({
                 "work_time": work_time,
@@ -252,9 +252,5 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // Repeatedly run decrementClock every 1 second
     setInterval(decrementClock, 1000);
 
-    // Meant to be where fetchUser and fetchSettings is supposed to run, but needs to be fixed
-    user_id = fetchUser();
     fetchSettings();
-    console.log(user_id);
-    console.log("Current Work Time: " + current_work_time);
 });
